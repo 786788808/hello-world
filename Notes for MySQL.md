@@ -1,16 +1,17 @@
 ##### 记录易错点、记不牢的用法
-平时经常要整理清洗数据，把常用的记一下，以免以后忘记了
-![](https://img2018.cnblogs.com/blog/1465325/202002/1465325-20200201170522772-816252389.jpg)
+![](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1473954996,908179479&fm=26&gp=0.jpg)
 
 - 删除一列：
-```MySQL
+```
 Alter Table `all_orders_amazon_copy1`  
 			Drop Column `下单日期`;   
-			
-- 删除多列：
+```	
+```
+# 删除多列：
 Alter Table `all_orders_amazon_copy1`  
 			Drop Column `下单日期`,   
 			Drop Column `下单时间`; 
+```			
 - 新增单列：
 alter table `all_deliveries_amazon_copy1`
     add column `下单日期` varchar(30) comment '太平洋时间' after `purchase-date`;
