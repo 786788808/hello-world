@@ -144,11 +144,11 @@ FROM information_schema. COLUMNS
 WHERE table_schema = 'database_1'
 AND table_name = 'database_1_table_1';
 
-# 把A表数据select出来，然后放进B表：
+# 把A表(旧表)数据select出来，然后放进B表(新表)：
 create table select from 和 insert into table select from都是用来复制表，两者的主要区别为：
 
-create table select from 要求目标表不存在，因为在插入时会自动创建。
-insert into table select from 要求目标表存在，相当于复制插入。
+create table table_B as select * from table_A; 要求目标表不存在，因为在插入时会自动创建。
+insert into table_B select * from table_A; 要求目标表存在，相当于复制插入。
 
 
 # 之前看书的时候过了一下列别名，但是没有仔细去看，做题的时候遇到where group by order by limit,总是很疑惑什么时候可以用列别名，什么时候不可以
