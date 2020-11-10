@@ -1,4 +1,4 @@
-##### 记录易错点、记不牢的用法
+##### 背景：记录易错点、记不牢的用法
 ![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605002521399&di=72e676fa3edc82057487583ddeaca248&imgtype=0&src=http%3A%2F%2Fwx1.sinaimg.cn%2Flarge%2Fbf976b12gy1g3b987cv7ag208c07k0td.gif)
 
 ```MySQL
