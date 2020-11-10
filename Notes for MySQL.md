@@ -53,7 +53,7 @@ select count(*) from `all_deliveries_amazon_copy1`;  # 24737
 select count(1) from `all_deliveries_amazon_copy1`;  # 24737
 select count(`purchase-date`) from `all_deliveries_amazon_copy1`;   # 24593
 
-- 聚集函数 sum() 忽略 null 值
+# 聚集函数 sum() 忽略 null 值
 select sum(`quantity`) from `all_orders_amazon`;
 
 # 聚集函数 max() 忽略 null 值
