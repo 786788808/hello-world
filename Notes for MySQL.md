@@ -164,5 +164,15 @@ Sql执行顺序：
 (9)    ORDER BY <order_by_condition>
 (10)   LIMIT <limit_number>
 
-在第7步，select的时候才出现别名，所以前面是根本用不了别名的。但是MySQL特殊一点，在group by后就可以用了，记住即可。
+在第7步，select的时候才出现别名，所以前面是根本用不了别名的。但是MySQL特殊一点，在group by后就可以用了，记住即可。  
+拿平时用到的表测试一拨   
+说明：表名：`payment`，列：`sku`（产品sku），`quantity`(产品销售数量），测试工具：MySQL  
+SELECT `sku` as 'ttt', sum(`quantity`) as aaa  
+FROM `payment`
+where `quantity` =1
+group by `ttt`
+having `aaa`>=1
+order by `aaa` desc
+limit 0,10;（通过）  
+如果在where后面接别名，直接报错。    
 ```
