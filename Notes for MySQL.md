@@ -151,13 +151,18 @@ create table table_B as select * from table_A; 要求目标表不存在，因为
 insert into table_B select * from table_A; 要求目标表存在，相当于复制插入。
 
 
-# 之前看书的时候过了一下列别名，但是没有仔细去看，做题的时候遇到where group by order by limit,总是很疑惑什么时候可以用列别名，什么时候不可以
+# 之前看书的时候过了一下列别名，但是没有仔细去看，刷题的时候偶尔会遇到相关题目,于是小记一下：
 Sql执行顺序：
-FROM 
-WHERE （先过滤单表／视图／结果集，再JOIN）（不放聚合函数） 
-GROUP BY （从这里开始，可以使用列别名）
-HAVING （WHERE过滤的是行，HAVING过滤的是组，所以在GROUP之后） 
-ORDER BY
-SELECT子句
-LIMIT子句
+(1)    FROM <left_table>
+(2)    ON <join_condition>
+(3)    <join_type> JOIN <right_table>
+(4)    WHERE <where_condition>       # where 过滤的是行记录； where 后面不加聚合函数
+(5)    GROUP BY <group_by_list>
+(6)    HAVING <having_condition>     # having 过滤的是组，必须有group by才有having
+(7)    SELECT
+(8)    DISTINCT <select_list>
+(9)    ORDER BY <order_by_condition>
+(10)   LIMIT <limit_number>
+
+在第7步，select的时候才出现别名，所以前面是根本用不了别名的。但是MySQL特殊一点，在group by后就可以用了，记住即可。
 ```
