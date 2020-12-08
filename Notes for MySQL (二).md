@@ -42,20 +42,23 @@ select trim('    monday    ') AS trimmed_string;
 >
 #### 5. rtrim(str) 去除字符串str右边的空格
 ```
-select rtrim('    monday    ') AS r_trimmed_string;
+select rtrim('    monday    ') as r_trimmed_string;
 ```
 ![](https://ftp.bmp.ovh/imgs/2020/12/5e90db0ad26433ce.png)
 >
 #### 6. ltrim(str) 去除字符串str左边的空格
 ```
-select ltrim('    monday    ') AS l_trimmed_string;
+select ltrim('    monday    ') as l_trimmed_string;
 ```
 ![](https://ftp.bmp.ovh/imgs/2020/12/2c292995bd6d7abe.png)
 >
-#### 7. ltrim(str) 去除字符串str左边的空格
+#### 7. replace(str,s1,s2) 将字符串 s2 替代字符串 str 中的字符串 s1
 ```
-select ltrim('    monday    ') AS l_trimmed_string;
+select replace('aaabbbaaa','a','0') as rep_str;
 ```
+![](https://ftp.bmp.ovh/imgs/2020/12/468ca30869b88b91.png)  
+>
+#### 8. 未完
 
 
 
