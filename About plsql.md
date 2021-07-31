@@ -16,13 +16,27 @@ End;
 ```  
 **注：**  
 - 不区分大小写  
-- 运行方式：在 Plsql Developer 工具的 Test Window 创建，执行，然后在DBMS Output可以看到输出结果。也可以在CMD执行
+- 运行方式：
+    - 在 Plsql Developer 工具的 Test Window 创建，执行，然后在 DBMS Output 可以看到输出结果。也可以在 CMD 执行
+    - 在 CMD 窗口敲 sqlplus,输入用户、密码。然后运行代码set serveroutput on
 - 每一个命令语句结束后面必须加分号
 
 e.g.: 举个简单的例子，打印 Hello,world!
-这里不需要声明任何变量，只要最关键的Begin部分就行。  
+这里不需要声明任何变量，只要最关键的 Begin 部分就行。  
 ```
+## test window
 Begin
   DBMS_output.put_line('Hello,world!');   --DBMS:Database Management System
 End;
 ```
+```
+## sqlplus（CMD开启）
+set serveroutput on;  --有输出，要先开启输出选项
+Begin
+  DBMS_output.put_line('Hello,world!');   --DBMS:Database Management System
+End;
+```
+
+
+
+
