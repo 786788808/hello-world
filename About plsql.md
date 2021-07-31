@@ -1,9 +1,9 @@
 ## PLSQL篇
-#### 1.1 PL/SQL定义
+### 1.1 PL/SQL定义
 PL/SQL(Procedure Language/SQL)是Oracle对sql语言的过程化扩展。  
 其在SQL命令语句中增加了过程处理语句(分支、循环等),使SQL语言具有过程处理语句。
 
-#### 1.2 程序结构
+### 1.2 程序结构
 程序分为三部分：声明部分(以 Declare 开头)、执行部分(以 Begin 开头)、异常处理部分(以 Exception 开头)。    
 ```sql
 Declare  
@@ -36,6 +36,21 @@ Begin
   DBMS_output.put_line('Hello,world!');   --DBMS:Database Management System
 End;
 ```
+
+### 1.4 变量
+PLSQL编程中常见的变量分为两大类：  
+1.普通数据类型(char, varchar2, date, number, boolean, long)  --PLSQL 中有 boolean,但是原本 Oracle 中没有该数据类型，一般用char(1)或number(1)表示
+2.特殊变量类型(引用型变量，记录型变量)
+声明变量：  
+变量名 变量类型(变量长度)
+
+e.g.:  
+```sql
+Declare
+  v_name varchar2(123);  -- 一定要记住分号;
+  v_weight number(4,1);
+```
+
 
 
 
