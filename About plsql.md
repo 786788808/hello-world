@@ -15,4 +15,11 @@ Begin
 Exception  
   --异常报错，可有可无  
 End;  
+```  
+
+e.g.: 打印 Hello,world!
+```
+Begin
+  DBMS_output.put_line('Hello,world!');   --DBMS:Database Management System
+End;
 ```
