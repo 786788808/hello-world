@@ -35,6 +35,7 @@ set serveroutput on;  --有输出，要先开启输出选项
 Begin
   DBMS_output.put_line('Hello,world!');   --DBMS:Database Management System
 End;
+/
 ```
 
 ### 1.4 变量
@@ -49,6 +50,9 @@ e.g.:
 Declare
   v_name varchar2(123);  -- 一定要记住分号;
   v_weight number(4,1);
+Begin
+  …
+End;
 ```
 
 
