@@ -15,10 +15,10 @@ Exception
   --异常报错，可有可无  
 End;  
 ```  
-注：
--- 不区分大小写  
--- 运行方式：在 Plsql Developer 工具的 Test Window 创建，执行，然后在DBMS Output可以看到输出结果。
--- 每一个命令语句结束后面必须加分号
+**注：**  
+- 不区分大小写  
+- 运行方式：在 Plsql Developer 工具的 Test Window 创建，执行，然后在DBMS Output可以看到输出结果。
+- 每一个命令语句结束后面必须加分号
 
 e.g.: 打印 Hello,world!
 ```
