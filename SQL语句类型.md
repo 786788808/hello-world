@@ -16,16 +16,27 @@ SQL语句主要划分为以下几类：
 - 5 DQL(Data Query Language): 数据查询语言  
 最常用的SELECT，毕竟总不能每天都在建表删表建库删库等，学习重点在这里。    
 
+### 1. DDL(Data Definition Language)：数据定义语言，定义对数据库对象(库、表、列、索引)的操作
+语法：CREATE/ALTER/DROP + 对象类型 + 对象名称     
+（对象类型有 user/table/...，如果用oracle的plsql Developer，点开Objects模块，即可看见对象啦，有视图、同义词、用户、表等）
+```sql
+TRUNCATE   +   TABLE  +  表名;  ### 这个比较特殊,只接表  
+```
+
 ### 3. DCL(Data Control Language): 数据控制语言，定义对数据库、表、字段、用户的访问权限和安全级别  
 主要是GRANT（授权）命令、REVOKE（撤销）命令。      
 一般用户也没有这个权限执行，只有大佬有权限。      
 语法：GRANT/REVOKE  + 权限  +  TO/FROM  + 用户名称     
 
 举例子：    
--- 1.授权BI用户查询scott的emp表(管理员)    
-GRANT SELECT ON scott.emp TO BI;    
--- 2.回收权限(管理员)    
-REVOKE SELECT ON scott.emp FROM BI;     
+-- 1.授权BI用户查询scott的emp表(管理员)   
+```sql
+GRANT SELECT ON scott.emp TO BI;  
+```
+-- 2.回收权限(管理员)  
+```sql
+REVOKE SELECT ON scott.emp FROM BI;    
+```
 
 ### 4. TCL(Transaction Control Language): 事务控制语言 
 主要是 Commit 和 Rollback。    
