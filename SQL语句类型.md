@@ -19,8 +19,22 @@ SQL语句主要划分为以下几类：
 ### 1. DDL(Data Definition Language)：数据定义语言，定义对数据库对象(库、表、列、索引)的操作
 语法：CREATE/ALTER/DROP + 对象类型 + 对象名称     
 （对象类型有 user/table/...，如果用oracle的plsql Developer，点开Objects模块，即可看见对象啦，有视图、同义词、用户、表等）
+
 ```sql
-TRUNCATE   +   TABLE  +  表名;  ### 这个比较特殊,只接表  
+Create Database db_1;
+Create Table t_1(id number(5),
+            name varchar2(30)
+           );
+Create index id_1 on t_1(name);
+
+CREATE OR REPLACE VIEW v_emp_dept
+	AS
+	SELECT E.EMPNO, E.ENAME, E.JOB, E.HIREDATE, E.DEPTNO, D.DNAME
+	  FROM EMP E
+	  JOIN DEPT D
+	  ON E.DEPTNO = D.DEPTNO
+	WITH READ ONLY;  
+TRUNCATE + TABLE + 表名;  ### 这个比较特殊,只接表，不接其他对象  
 ```
 
 ### 3. DCL(Data Control Language): 数据控制语言，定义对数据库、表、字段、用户的访问权限和安全级别  
