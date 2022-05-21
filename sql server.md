@@ -7,3 +7,9 @@
 ### 2.查看sql server 版本
 `select @@version;`
 
+### 3.查看数据库状态
+`select * from sys.databases;`
+`SELECT name FROM SYS.MASTER_FILES;`
+`SELECT * FROM sys.database_file;`
+查询
+
