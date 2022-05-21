@@ -8,8 +8,9 @@
 `select @@version;`
 
 ### 3.查看数据库状态
-`select * from sys.databases;`
-`SELECT name FROM SYS.MASTER_FILES;`
-`SELECT * FROM sys.database_file;`
+`select * from sys.databases;`  
+`SELECT name FROM SYS.MASTER_FILES;`  
+注意：对于 tempdb，sys.master_files显示初始 tempdb 大小。 这些值用作在启动 tempdb 时创建 tempdb 的SQL Server。 因此，tempdb 增长时，不会反映在视图中。 若要获取 tempdb 文件的当前大小，请查询 tempdb.sys.database_files。（官网说明）
+`SELECT * FROM sys.database_file;`  
 查询
 
