@@ -61,5 +61,5 @@ REVOKE SELECT ON scott.emp FROM BI;
 记住，只有DML语言才有commit这一操作。因为，DDL是默认提交的，你执行后就直接对数据库进行了操作，根本回滚不了。  
 
 
-supplement:  
+**supplement:**
 Truncate是DDL语句，它不会走事务，谨慎使用这个来清空table，没有事务日志来回滚操作。  
