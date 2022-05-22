@@ -11,6 +11,10 @@
 `select * from sys.databases;`  
 `SELECT name FROM SYS.MASTER_FILES;`  
 注意：对于 tempdb，sys.master_files显示初始 tempdb 大小。 这些值用作在启动 tempdb 时创建 tempdb 的SQL Server。 因此，tempdb 增长时，不会反映在视图中。 若要获取 tempdb 文件的当前大小，请查询 tempdb.sys.database_files。（官网说明）
-`SELECT * FROM sys.database_file;`  
-查询
+`SELECT * FROM sys.database_files;`  
+查询mdf ndf ldf file具体的摆放位置  
 
+### 4.查询数据库文件的默认位置
+用sql server management studio图形界面，查询数据库文件中的数据、日志、备份    
+在object explorer,右击实例，选择“属性”，选择“数据库设置”，可以看到数据、日志、备份的默认设置位置  
+(在硬盘充足的情况下，将数据文件和日志文件分别存储到不同的物理硬盘上，可增加安全性，提高数据库的性能）  
