@@ -7,7 +7,7 @@
 ### 2.查看sql server 版本
 `select @@version;`
 
-### 3.查看数据库状态
+### 3.查看数据库状态信息
 `select * from sys.databases;`  
 `SELECT name FROM SYS.MASTER_FILES;`  
 注意：对于 tempdb，sys.master_files显示初始 tempdb 大小。 这些值用作在启动 tempdb 时创建 tempdb 的SQL Server。 因此，tempdb 增长时，不会反映在视图中。 若要获取 tempdb 文件的当前大小，请查询 tempdb.sys.database_files。（官网说明）
@@ -18,3 +18,12 @@
 用sql server management studio图形界面，查询数据库文件中的数据、日志、备份    
 在object explorer,右击实例，选择“属性”，选择“数据库设置”，可以看到数据、日志、备份的默认设置位置  
 (在硬盘充足的情况下，将数据文件和日志文件分别存储到不同的物理硬盘上，可增加安全性，提高数据库的性能）  
+
+### 5.查询日志备份相关设置
+`select * from msdb.dbo.backupset where database='testdb' order by backup_start_date desc;`    
+type表示备份的类型，D:全量备份，L表示日志备份，i表示差异备份。  
+（根据需求选择需要的列，如果只想看最后一次备份，可用SSMS右击DB的属性来看）    
+
+
+
+
