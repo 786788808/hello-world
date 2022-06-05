@@ -15,8 +15,9 @@ GO`
 
 
 ### 2.查看日志文件使用情况
-`DBCC SqlPerf(LogSpace);`  --会显示所有数据库的日志大小及使用情况。
-相对查数据文件的使用情况，超简单，而且不会对sql server带来负担，而且返回结果总是准确的。  
+`DBCC SqlPerf(LogSpace);`    
+会显示所有数据库的日志大小及使用情况。  
+相对查数据文件的使用情况，超简单，而且不会对sql server带来负担，而且返回结果总是准确的。    
 
 ### 3.查看数据库状态信息
 `select * from sys.databases;`  
