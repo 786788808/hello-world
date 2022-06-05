@@ -1,8 +1,18 @@
 # sql server
 ### 1.查询数据库大小、空间使用情况  
-`EXEC sp_spaceused;`    
-`EXEC sp_spaceused @updateusage = N'TRUE';` --更具实时性的写法    
+不同的统计方法，给出的结果会不一样，因为统计的单位不一样。有按区(Extent)为单位，也有按页(Page)为单位的方式。因为每个区有8个页，而8个页面不一定都被使用到。  
+如果某个区，还有几个没被用到的页，如果按照区来统计，那这8个页面都算是使用了的空间。如果按照页面来统计，没有使用的页面就可以不算。anyway，取决于统计方法。    
+#### 1.1 按照区统计：  
+`DBCC ShowFileStats
+GO`
+这个命令直接从GAM和SGAM这样的系统分配页面上读取区分信息，直接计算出数据库文件里有多少区已被分配。优点是能够快速准确地计算出一个数据库数据文件去的总数和已使用过的区的数目。  
+
+#### 1.2 按照页面统计： 
+`EXEC sp_spaceused;`  --有时不准确，因为非实时    
+`EXEC sp_spaceused @updateusage = N'TRUE';` --更具实时性的写法，基本准确。但是若数据库在繁忙工作时，最好不要执行该任务，因为会很耗资源。    
 <img width="272" alt="屏幕截图 2022-05-21 175701" src="https://user-images.githubusercontent.com/32427537/169646440-d7ba2126-da3e-4d34-9cc7-96af9c8be5b7.png">  
+`DBCC ShowContig`  --最精确的方法，但是要对数据库进行扫描，而扫描过程中，sql server要加锁。分3种扫描模式，分别为Limited,Sampled,Detailed. 依次得到的结果越精准，当然，伴随着越来越大的扫描范围。毕竟，天下没有免费的午餐。同理，数据库处于高峰期应避免使用该方法。  
+
 
 ### 2.查看sql server 版本
 `select @@version;`
