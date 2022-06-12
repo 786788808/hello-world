@@ -39,4 +39,8 @@ type表示备份的类型，D:全量备份，L表示日志备份，i表示差异
 ### 6.查看sql server 版本
 `select @@version;` 
 
+### 7.实例与数据库
+每台服务器可以有多个实例，每个实例也可以有多个数据库。  
+SQL server中实例和数据库的主要区别在于，实例是sqlservr.exe可执行文件的副本，该文件作为操作系统服务运行，而数据库是将数据存储在表中的系统数据集合。
+![https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/database-engine-instances-sql-server?view=sql-server-2017]
 
