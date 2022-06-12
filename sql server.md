@@ -47,6 +47,9 @@ SQL server中实例和数据库的主要区别在于，实例是sqlservr.exe可�
 ### 8.CDC
 变更数据捕获（Change Data Capture ，简称 CDC）记录 SQL Server 表的插入、更新和删除活动。使用变更数据捕获可以更有效跟踪表对象DML历史操作，对 ETL 等数据转移也非常有用  
 变更数据捕获的更改数据源为 SQL Server 事务日志。当对表启用变更数据捕获时，系统将生成一个与该表结构类似的CDC表(like cdc.dbo_tablenameA_CT,在对应数据库下，展开system table即可看到开了CDC功能的表)。当对源表进行插入、更新和删除 时，在事务日志会记录相关操作信息。变更数据捕获代理使用异步进程读取事务日志，将相关操作结果应用到副本表（捕获实例表）中，这样就完成了对源表操作的记录跟踪。
+一些参考资料：  
+https://sqlzealots.com/2019/03/02/how-do-we-set-up-change-data-capture-in-sql-server/  
+https://sqlzealots.com/2019/03/02/how-do-we-set-up-change-data-capture-in-sql-server/  
 
 
 
