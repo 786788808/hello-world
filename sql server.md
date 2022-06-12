@@ -53,7 +53,7 @@ https://sqlzealots.com/category/change-data-capture/
 https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/dd266396(v=sql.100)   
 https://hevodata.com/learn/sql-server-cdc/#understanding_sql_server_cdc    
 https://blog.csdn.net/kk185800961/article/details/45749333  
-
+https://hevodata.com/learn/sql-server-cdc/#understanding_sql_server_cdc  
 
 
 
