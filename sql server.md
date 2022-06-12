@@ -55,7 +55,8 @@ https://hevodata.com/learn/sql-server-cdc/#understanding_sql_server_cdc
 https://blog.csdn.net/kk185800961/article/details/45749333  
 https://hevodata.com/learn/sql-server-cdc/#understanding_sql_server_cdc  
 开启CDC导致事务日志空间被占满的原因：  
-https://blog.csdn.net/woailyoo0000/article/details/106481601  
+https://blog.csdn.net/woailyoo0000/article/details/106481601   
+  
 
 
 
