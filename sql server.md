@@ -51,5 +51,9 @@ SQL server中实例和数据库的主要区别在于，实例是sqlservr.exe可�
 https://sqlzealots.com/2019/03/02/how-do-we-set-up-change-data-capture-in-sql-server/    
 https://sqlzealots.com/category/change-data-capture/  
 https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/dd266396(v=sql.100)   
+https://hevodata.com/learn/sql-server-cdc/#understanding_sql_server_cdc    
+https://blog.csdn.net/kk185800961/article/details/45749333  
+
+
 
 
