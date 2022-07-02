@@ -58,6 +58,12 @@ https://hevodata.com/learn/sql-server-cdc/#understanding_sql_server_cdc
 https://blog.csdn.net/woailyoo0000/article/details/106481601   
 https://www.likecs.com/show-306009460.html  
 
+开启CDC后，可能会把放事务日志的硬盘撑爆。记得设定定时任务，backup 事务日志，然后及时清走。  
+
+
+### 8.recovery mode
+有三种recovery mode:简单，完整，大容量日志。  
+默认是完整模式，大多数情况，在生产不建议用简单模式（simple）。当然根据生产的情况而定，我这边有试过可不用完整（full）模式的，直接用simple（智能的一匹），如果有生产事故，可不用到事务日志，用另一个软件搭配来恢复丢失的一段数据。  
 
 
 
