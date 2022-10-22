@@ -11,12 +11,51 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 ![image](https://user-images.githubusercontent.com/32427537/197347605-f1275482-d208-45b5-b427-49a1c34e87a0.png)
 
 
+USE Hush_DEMO 
+GO 
+SELECT [name], database_id, is_cdc_enabled  
+FROM sys.databases       
+GO  
+![image](https://user-images.githubusercontent.com/32427537/197348157-a2738028-676e-4614-bd18-4e00e2190ebd.png)
+
+
+create table dbo.student  --创建表student
+(sno char(4) primary key,
+sname char(8),
+sage int,
+ssex char(2),
+sdept char(20)
+);
+
+
+create table dbo.course  --创建表course
+(cno char(4) primary key,
+cname char(8),
+cpno char(4),
+ccredit int
+);
+
+
+create table dbo.sc  --创建表sc
+(sno char(4) primary key,
+cno char(4),
+grade int
+);
 
 
 ### 3.enable CDC(Database level and table level)
-验证
-`select is_cdc_enabled, * from sys.databases where name='Hush_DEMO'`  
+#### 3.1 Database level
+`GO`   
+`EXEC sys.sp_cdc_enable_db`  
 `GO`  
-![image](https://user-images.githubusercontent.com/32427537/197347165-3f7953c7-6e8e-4f19-8302-cfb62e9d324d.png)
 
-### 
+验证:  
+`GO`  
+`SELECT [name], database_id, is_cdc_enabled`      
+`FROM sys.databases`            
+`GO`       
+ 
+![image](https://user-images.githubusercontent.com/32427537/197348245-44875e69-d08b-472e-8d43-fd304601bae3.png)  
+
+#### 3.2 Table level
+
