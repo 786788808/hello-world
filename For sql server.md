@@ -59,7 +59,9 @@ https://blog.csdn.net/woailyoo0000/article/details/106481601
 https://www.likecs.com/show-306009460.html  
 
 开启CDC后，可能会把放事务日志的硬盘撑爆。记得设定定时任务，backup 事务日志，然后及时清走。  
-CDC table字段介绍：
+CDC table字段介绍：  
+![image](https://user-images.githubusercontent.com/32427537/197345869-b2749dec-f1ba-466c-a9b1-a3f8392fad09.png)
+
 https://medium.com/%E3%84%9A%E5%8C%97%E7%9A%84%E6%89%80%E8%A6%8B%E6%89%80%E8%81%9E/docker-with-mssql-cdc-80148241d415
 
 ### 8.recovery mode
