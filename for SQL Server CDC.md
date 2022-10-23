@@ -11,11 +11,11 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 ![image](https://user-images.githubusercontent.com/32427537/197347605-f1275482-d208-45b5-b427-49a1c34e87a0.png)
 
 
-USE Hush_DEMO 
-GO 
-SELECT [name], database_id, is_cdc_enabled  
-FROM sys.databases       
-GO  
+`USE Hush_DEMO`   
+`GO`   
+`SELECT [name], database_id, is_cdc_enabled`    
+`FROM sys.databases`         
+`GO`    
 ![image](https://user-images.githubusercontent.com/32427537/197348157-a2738028-676e-4614-bd18-4e00e2190ebd.png)
 
 
@@ -24,23 +24,25 @@ create table dbo.student  --创建表student
 sname char(8),
 sage int,
 ssex char(2),
-sdept char(20)
+sdept char(20),
+StartTime datetime
 );
-
 
 create table dbo.course  --创建表course
 (cno char(4) primary key,
 cname char(8),
 cpno char(4),
-ccredit int
+ccredit int,
+StartTime datetime
 );
-
 
 create table dbo.sc  --创建表sc
 (sno char(4) primary key,
 cno char(4),
-grade int
-);
+grade int,
+StartTime datetime
+); 
+
 
 
 ### 3.enable CDC(Database level and table level)
@@ -58,4 +60,21 @@ grade int
 ![image](https://user-images.githubusercontent.com/32427537/197348245-44875e69-d08b-472e-8d43-fd304601bae3.png)  
 
 #### 3.2 Table level
+`SELECT name, is_tracked_by_cdc from sys.tables;`    
+![image](https://user-images.githubusercontent.com/32427537/197378587-e992b24e-5e2d-49a9-9150-73633dd8e5fb.png)
+
+
+`GO`   
+`EXEC sys.sp_cdc_enable_table`   
+`@source_schema = N'dbo',`   
+`@source_name   = N'student',`   
+`@role_name     = NULL`   
+`GO`  
+
+![image](https://user-images.githubusercontent.com/32427537/197378622-f17f25e0-8c73-46c4-a2bb-5755dec07b46.png)
+![image](https://user-images.githubusercontent.com/32427537/197378657-b74b3428-f19a-42a0-a9a4-442bbcf7e3ec.png)
+
+
+Select * from CDC.dbo_sc_CT;
+sp_columns dbo_sc_CT;
 
