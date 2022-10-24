@@ -78,3 +78,42 @@ StartTime datetime
 Select * from CDC.dbo_sc_CT;
 sp_columns dbo_sc_CT;
 
+#### 4.operation
+`BEGIN TRANSACTION;`
+
+`insert into dbo.sc `
+`values`
+`('11','21',78,getdate()),`
+`('111','22',88,getdate()),`  
+`('110','23',98,getdate()),`  
+`('119','24',108,getdate()),`  
+`('22','21',79,getdate()),`  
+`('27','22',89,getdate()),`  
+`('222','23',99,getdate()),`  
+`('227','24',109,getdate()),`  
+`('33','21',59,getdate()),`  
+`('333','22',69,getdate()),`  
+`('339','23',59,getdate()),`  
+`('336','24',79,getdate()),`  
+`('44','21',78,getdate()),`  
+`('444','22',88,getdate()),`  
+`('448','23',98,getdate()),`  
+`('445','24',108,getdate());`  
+
+`update dbo.sc set sno = 'aaaa' where sno ='21';`  
+`update dbo.sc set grade = 100 where cno ='110' and sno='23';`  
+`update dbo.sc set sno = 'bbbb' where sno ='22';`  
+`update dbo.sc set grade = 0 where sno ='24';`  
+
+`COMMIT TRANSACTION;`  
+ 
+----- 
+`BEGIN TRANSACTION;`  
+  
+`update dbo.sc set grade =100 where cno ='21';`  
+`update dbo.sc set grade =1000 where cno ='21';`  
+`  
+`COMMIT TRANSACTION;`  
+
+`select * from dbo.sc;`  
+`select * from cdc.dbo_sc_CT;`  
