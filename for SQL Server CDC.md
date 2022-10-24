@@ -79,10 +79,10 @@ Select * from CDC.dbo_sc_CT;
 sp_columns dbo_sc_CT;
 
 #### 4.operation
-`BEGIN TRANSACTION;`
+`BEGIN TRANSACTION;`  
 
-`insert into dbo.sc `
-`values`
+`insert into dbo.sc `  
+`values`  
 `('11','21',78,getdate()),`
 `('111','22',88,getdate()),`  
 `('110','23',98,getdate()),`  
@@ -112,8 +112,11 @@ sp_columns dbo_sc_CT;
   
 `update dbo.sc set grade =100 where cno ='21';`  
 `update dbo.sc set grade =1000 where cno ='21';`  
-`  
+ 
 `COMMIT TRANSACTION;`  
 
 `select * from dbo.sc;`  
 `select * from cdc.dbo_sc_CT;`  
+![image](https://user-images.githubusercontent.com/32427537/197437532-7e4340a1-ca47-4f19-9945-59548c0944e1.png)  
+![image](https://user-images.githubusercontent.com/32427537/197437570-1858f7f6-5846-48bc-a0d1-5f11825ee5db.png)
+  
