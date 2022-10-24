@@ -82,11 +82,11 @@ sp_columns dbo_sc_CT;
 `BEGIN TRANSACTION;`  
 
 `insert into dbo.sc `  
-`values`  
-`('11','21',78,getdate()),`
-`('111','22',88,getdate()),`  
-`('110','23',98,getdate()),`  
-`('119','24',108,getdate()),`  
+`values`    
+`('11','21',78,getdate()),`  
+`('111','22',88,getdate()),`    
+`('110','23',98,getdate()),`    
+`('119','24',108,getdate()),`    
 `('22','21',79,getdate()),`  
 `('27','22',89,getdate()),`  
 `('222','23',99,getdate()),`  
@@ -120,3 +120,8 @@ sp_columns dbo_sc_CT;
 ![image](https://user-images.githubusercontent.com/32427537/197437532-7e4340a1-ca47-4f19-9945-59548c0944e1.png)  
 ![image](https://user-images.githubusercontent.com/32427537/197437570-1858f7f6-5846-48bc-a0d1-5f11825ee5db.png)
   
+  溢出问题，暂未解决  
+`select mapping.tran_begin_time,mapping.tran_end_time,convert(decimal(19,0),src.__$seqval),src.*`  
+`from cdc.dbo_sc_CT as src`  
+`inner join cdc.lsn_time_mapping as mapping`  
+`on src.__$start_lsn = mapping.start_lsn;`  
