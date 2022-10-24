@@ -78,7 +78,7 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 Select * from CDC.dbo_sc_CT;
 sp_columns dbo_sc_CT;
 
-#### 4.operation
+### 4.operation
 `BEGIN TRANSACTION;`  
 
 `insert into dbo.sc `  
