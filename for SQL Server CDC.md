@@ -19,29 +19,29 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 ![image](https://user-images.githubusercontent.com/32427537/197348157-a2738028-676e-4614-bd18-4e00e2190ebd.png)
 
 
-create table dbo.student  --创建表student
-(sno char(4) primary key,
-sname char(8),
-sage int,
-ssex char(2),
-sdept char(20),
-StartTime datetime
-);
+`create table dbo.student`     --创建表student  
+`(sno char(4) primary key,`   
+`sname char(8),`   
+`sage int,`   
+`ssex char(2),`   
+`sdept char(20),`   
+`StartTime datetime`   
+`);`   
 
-create table dbo.course  --创建表course
-(cno char(4) primary key,
-cname char(8),
-cpno char(4),
-ccredit int,
-StartTime datetime
-);
+`create table dbo.course`     --创建表course    
+`(cno char(4) primary key,`   
+`cname char(8),`   
+`cpno char(4),`   
+`ccredit int,`   
+`StartTime datetime`   
+`);`   
 
-create table dbo.sc  --创建表sc
-(sno char(4) primary key,
-cno char(4),
-grade int,
-StartTime datetime
-); 
+`create table dbo.sc`     --创建表sc    
+`(sno char(4) primary key,`   
+`cno char(4),`   
+`grade int,`   
+`StartTime datetime`   
+`);`   
 
 
 
