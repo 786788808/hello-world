@@ -3,7 +3,7 @@
 如果同一条record同时连着被更改，CDC表会如何去记录；如果不存在该record，CDC表是否会记录到……  
 最近才看到SQL Server有免费版，可以自己下载来试试。God,我的脑袋……大写的服:pig:      
 ### 1.下载并安装SQL Server,sql server management studio  
-(*free free*, 不需要装破解版，安装教程后面补上)    
+(*free free free*, 不需要装破解版，装正版pls，安装教程后面补上)    
 https://www.microsoft.com/en-us/sql-server/sql-server-downloads    
 https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16  
 ![image](https://user-images.githubusercontent.com/32427537/197346596-9bdfe1a7-3d85-4a51-8737-63103bbd2bf5.png)  
