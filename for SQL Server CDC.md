@@ -10,10 +10,10 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 ![image](https://user-images.githubusercontent.com/32427537/197346710-5bf32a43-bd29-482b-819e-be70382251cd.png)
 
 ### 2.建立新Database，新table 
-新建Database Hush_DEMO,  
+#### 2.1 新建Database Hush_DEMO  
 ![image](https://user-images.githubusercontent.com/32427537/197347605-f1275482-d208-45b5-b427-49a1c34e87a0.png)
 
-
+查看Database level 的CDC情况,此时可看到Hush_DEMO没有开CDC。OK, next…
 `USE Hush_DEMO`   
 `GO`   
 `SELECT [name], database_id, is_cdc_enabled`    
@@ -21,7 +21,8 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 `GO`    
 ![image](https://user-images.githubusercontent.com/32427537/197348157-a2738028-676e-4614-bd18-4e00e2190ebd.png)
 
-
+#### 2.1 新建table 
+试验暂时只用到了sc table，都可以用来测试，如果是批量对table做enable CDC，下面最好就改程序了，而不是单一去enable CDC  
 `create table dbo.student`     --创建表student  
 `(sno char(4) primary key,`   
 `sname char(8),`   
@@ -50,6 +51,7 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 
 ### 3.enable CDC(Database level and table level)
 #### 3.1 Database level
+Enable CDC:
 `GO`   
 `EXEC sys.sp_cdc_enable_db`  
 `GO`  
@@ -63,6 +65,7 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 ![image](https://user-images.githubusercontent.com/32427537/197348245-44875e69-d08b-472e-8d43-fd304601bae3.png)  
 
 #### 3.2 Table level
+Enable table CDC:
 `SELECT name, is_tracked_by_cdc from sys.tables;`    
 ![image](https://user-images.githubusercontent.com/32427537/197378587-e992b24e-5e2d-49a9-9150-73633dd8e5fb.png)
 
@@ -78,10 +81,15 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 ![image](https://user-images.githubusercontent.com/32427537/197378657-b74b3428-f19a-42a0-a9a4-442bbcf7e3ec.png)
 
 
-Select * from CDC.dbo_sc_CT;
-sp_columns dbo_sc_CT;
-
 ### 4.实验
+首先，看一下sc 表的CDC表的一个table schema, and the record in CDC table  
+Obvioulsly, there are more six columns in the CDC table than the original table.  
+The new columns in the CDC table is useful for us.  
+
+sp_columns dbo_sc_CT;  
+Select * from CDC.dbo_sc_CT;  
+
+接着，来做实验吧。  
 Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有不同的标志区分不同的操作吗，怎么辨别到最后的结果？  
 下面来看，在同一个事务里，同时对某一行record进行多次操作。  
 可以发现，在CDC表会有不同的field对这些操作进行区分  
