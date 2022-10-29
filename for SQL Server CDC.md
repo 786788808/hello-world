@@ -51,12 +51,12 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 
 ### 3.enable CDC(Database level and table level)
 #### 3.1 Database level
-Enable CDC:
+Enable CDC:  
 `GO`   
 `EXEC sys.sp_cdc_enable_db`  
 `GO`  
 
-验证:  
+验证:    
 `GO`  
 `SELECT [name], database_id, is_cdc_enabled`      
 `FROM sys.databases`            
@@ -65,7 +65,7 @@ Enable CDC:
 ![image](https://user-images.githubusercontent.com/32427537/197348245-44875e69-d08b-472e-8d43-fd304601bae3.png)  
 
 #### 3.2 Table level
-Enable table CDC:
+Enable table CDC:  
 `SELECT name, is_tracked_by_cdc from sys.tables;`    
 ![image](https://user-images.githubusercontent.com/32427537/197378587-e992b24e-5e2d-49a9-9150-73633dd8e5fb.png)
 
@@ -86,8 +86,8 @@ Enable table CDC:
 Obvioulsly, there are more six columns in the CDC table than the original table.  
 The new columns in the CDC table is useful for us.  
 
-sp_columns dbo_sc_CT;  
-Select * from CDC.dbo_sc_CT;  
+`sp_columns dbo_sc_CT;`  
+`Select * from CDC.dbo_sc_CT;`  
 
 接着，来做实验吧。  
 Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有不同的标志区分不同的操作吗，怎么辨别到最后的结果？  
