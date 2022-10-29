@@ -13,7 +13,7 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 #### 2.1 新建Database Hush_DEMO  
 ![image](https://user-images.githubusercontent.com/32427537/197347605-f1275482-d208-45b5-b427-49a1c34e87a0.png)
 
-查看Database level 的CDC情况,此时可看到Hush_DEMO没有开CDC。OK, next…
+查看Database level 的CDC情况,此时可看到Hush_DEMO没有开CDC。OK, next…  
 `USE Hush_DEMO`   
 `GO`   
 `SELECT [name], database_id, is_cdc_enabled`    
@@ -92,7 +92,8 @@ The new columns in the CDC table is useful for us.
 接着，来做实验吧。  
 Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有不同的标志区分不同的操作吗，怎么辨别到最后的结果？  
 下面来看，在同一个事务里，同时对某一行record进行多次操作。  
-可以发现，在CDC表会有不同的field对这些操作进行区分  
+可以发现，在CDC表会有不同的field对这些操作进行区分    
+测试一：  
 `BEGIN TRANSACTION;`  
 
 `insert into dbo.sc `  
@@ -121,7 +122,8 @@ Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有�
 
 `COMMIT TRANSACTION;`  
  
------ 
+-----   
+测试二：  
 `BEGIN TRANSACTION;`  
   
 `update dbo.sc set grade =100 where cno ='21';`  
