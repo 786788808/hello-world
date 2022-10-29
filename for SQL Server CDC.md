@@ -121,8 +121,13 @@ Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有�
 `update dbo.sc set grade = 0 where sno ='24';`  
 
 `COMMIT TRANSACTION;`  
- 
------   
+
+------------------------
+`select * from dbo.sc;`    
+`select * from cdc.dbo_sc_CT;`   
+output:  
+ ![image](https://user-images.githubusercontent.com/32427537/197437532-7e4340a1-ca47-4f19-9945-59548c0944e1.png)    
+------------------------  
 测试二：  
 `BEGIN TRANSACTION;`  
   
@@ -131,9 +136,10 @@ Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有�
  
 `COMMIT TRANSACTION;`  
 
+------------------------
 `select * from dbo.sc;`  
 `select * from cdc.dbo_sc_CT;`  
-![image](https://user-images.githubusercontent.com/32427537/197437532-7e4340a1-ca47-4f19-9945-59548c0944e1.png)  
+ output:  
 ![image](https://user-images.githubusercontent.com/32427537/197437570-1858f7f6-5846-48bc-a0d1-5f11825ee5db.png)
   
   溢出问题，暂未解决  
