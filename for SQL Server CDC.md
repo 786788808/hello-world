@@ -1,4 +1,7 @@
 ## It's for SQL Server CDC   
+关于CDC，此问题困惑了我很久，因为U场用不了，测试无望。   
+如果同一条record同时连着被更改，CDC表会如何去记录；如果不存在该record，CDC表是否会记录到……  
+最近才看到SQL Server有免费版，可以自己下载来试试。God,我的脑袋……大写的服:pig:      
 ### 1.下载并安装SQL Server,sql server management studio  
 (*free free*, 不需要装破解版，安装教程后面补上)    
 https://www.microsoft.com/en-us/sql-server/sql-server-downloads    
@@ -78,7 +81,10 @@ https://learn.microsoft.com/zh-cn/sql/ssms/download-sql-server-management-studio
 Select * from CDC.dbo_sc_CT;
 sp_columns dbo_sc_CT;
 
-### 4.operation
+### 4.实验
+Q1:如果同时对一条record进行更改，CDC表是怎样去记录的，有不同的标志区分不同的操作吗，怎么辨别到最后的结果？  
+下面来看，在同一个事务里，同时对某一行record进行多次操作。  
+可以发现，在CDC表会有不同的field对这些操作进行区分  
 `BEGIN TRANSACTION;`  
 
 `insert into dbo.sc `  
